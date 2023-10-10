@@ -1,0 +1,24 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0503.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [ [ "showInputDialog" ], [ "Integer.parseInt" ], [ "showMessageDialog" ], [ "showConfirmDialog" ], [ "YES_OPTION" ], 							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>숫자를 입력받아 홀수인지 짝수인지 맞추는 문제입니다 이를 해결하는 다음 프로그램에 대해 빈칸을 채우세요 </pre> 				
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_1.png" ><b><font color='red'></font></b>
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_2.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_3.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_4.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_5.png" > <br>  	  				<h4>코드 빈칸 채우기</h4> 				<pre style='white-space:pre;border:1px'>import javax.swing.JOptionPane; 
+public class EvenOdd_Main 
+{ 
+	public static void main (String[] args) 
+	{ 
+		String numStr, result; 
+		int num, again; 
+ 
+		do  
+		{ 
+			numStr = JOptionPane.<input id='blank0' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(0)'> ("Enter an integer: ");	 
+			num = <input id='blank1' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(1)'>(numStr); 	 
+			result = "That number is " + ((num%2 == 0) ? "even" : "odd"); 
+			JOptionPane.<input id='blank2' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(2)'> (null, result);	 
+			again = JOptionPane.<input id='blank3' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(3)'> (null, "Do Another?");	 
+		} while( again == JOptionPane.<input id='blank4' type='text' required minlength='1' maxlength='30' size='10' onchange='f6(4)'> );	 
+		return; 
+	} 
+} 	 			</pre> 			</div> 		</div> 	</body> </html> 

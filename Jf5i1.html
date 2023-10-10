@@ -1,0 +1,89 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0501.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 	</head> 	<body onload='f2();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"></div> 			<div id = "navigationBox"></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>Push Me! 버튼을 누르면 Pushes 횟수가 증가하는 문제입니다 이를 해결하는 다음 프로그램을 해석하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_PushMe_1.png" ><b><font color='red'></font></b> <br> 	  				<h4>알고리즘</h4> 				<pre style='white-space:normal;'> 프로그램시작 <br> &nbsp; &nbsp;틀 준비 <br> &nbsp; &nbsp;패널 준비 <br> &nbsp; &nbsp;틀에 패널 끼우고 실행 준비 완료 <br> 프로그램 종료 <br> <br> 패널 준비 <br> &nbsp; &nbsp;Push Me! 버튼 준비 <br> &nbsp; &nbsp;Pushes 횟수 출력 준비 <br> <br> 버튼 클릭시 작동 <br> &nbsp; &nbsp;클릭 횟수 증가 후 출력 <br></pre> 		 				<br><h4>프로그램 코드 <input id='btn' type='button' value='실행순서 및 메모리상태 확인' onclick='f5();'/></h4>  				<div id = "codeBox"><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Chapter06/PushCounter_Main.java</font> 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.JFrame; 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.event.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.*; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	class PushCounterPanel <font color='red' title="클래스를 상속 받음">extends</font> JPanel	 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		private int count; 
+</pre><pre id="code0" class="unselectable codeClass">		private JButton push; 
+</pre><pre id="code0" class="unselectable codeClass">		private JLabel label; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 패널 준비 </b></font>
+</pre>
+<pre id="code1" class="unselectable codeClass">1		public PushCounterPanel () 		 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			count = 0; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> Push Me! 버튼 준비 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			push = new JButton ("Push Me!"); 
+</pre>
+<pre id="code2" class="unselectable codeClass">2			push.<font color='red' title="버튼 등의 컴퍼넌트에 리스너를 추가">addActionListener</font> (new ButtonListener());	 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> Pushes 횟수 출력 준비 </b></font>
+</pre>
+<pre id="code3" class="unselectable codeClass">3			label = new JLabel ("Pushes: " + count); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			add (push); 
+</pre>
+<pre id="code4" class="unselectable codeClass">4			add (label); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			setBackground (Color.cyan); 
+</pre>
+<pre id="code5" class="unselectable codeClass">5			setPreferredSize (new Dimension(300, 40)); 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		private class ButtonListener <font color='red' title="인터페이스를 상속 받아 모든 메서드를 구현">implements</font> ActionListener 	 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 버튼 클릭시 작동 </b></font>
+</pre>
+<pre id="code6" class="unselectable codeClass">6			public void <font color='red' title="버튼 클릭이나 타이머 활성화 등의 이벤트 발생시 호출되는 메서드">actionPerformed</font> (ActionEvent event) 	 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">//<b> 클릭 횟수 증가 후 출력 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">				count++; 
+</pre>
+<pre id="code7" class="unselectable codeClass">7				label.<font color='red' title="해당 객체에 출력할 텍스트의 내용 설정">setText</font>("Pushes: " + count);	 
+</pre>
+<pre id="code8" class="unselectable codeClass">8				return; 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre>
+<pre id="code9" class="unselectable codeClass">9	<font color="green">// Push Me! 버튼 첫번째 클릭하기</font> 
+</pre>
+<pre id="code10" class="unselectable codeClass">10	<font color="green">// Push Me! 버튼 두번째 클릭하기</font> 
+</pre>
+<pre id="code11" class="unselectable codeClass">11	<font color="green">// 프레임 우측상단 X버튼 클릭하기(종료)</font>	 
+</pre><pre id="code0" class="unselectable codeClass">	public class PushCounter_Main 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 프로그램시작 </b></font>
+</pre>
+<pre id="code12" class="unselectable codeClass">12		public static void main (String[] args) 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 틀 준비 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			JFrame frame = new JFrame ("Push Counter"); 
+</pre>
+<pre id="code13" class="unselectable codeClass">13			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 패널 준비 </b></font>
+</pre>
+<pre id="code14" class="unselectable codeClass">14			PushCounterPanel panel =  
+</pre>
+<pre id="code15" class="unselectable codeClass">15						new PushCounterPanel(); 
+</pre>
+<pre id="code16" class="unselectable codeClass">16			frame.getContentPane().add(panel); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 틀에 패널 끼우고 실행 준비 완료 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			frame.pack(); 
+</pre>
+<pre id="code17" class="unselectable codeClass">17			frame.setVisible(true); 
+</pre><pre id="code0" class="unselectable codeClass">			 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 프로그램 종료 </b></font>
+</pre>
+<pre id="code18" class="unselectable codeClass">18			return; 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre></div>	 	 				<br><h4>키워드 설명</h4> 				<pre id = "d3" style='white-space:normal;'></pre> 			 				<h4>실행 순서</h4> 				<pre id = "d4" style='white-space:normal; width:800px;'> </pre> 				<pre style='white-space:normal;'> 					※ 실행순서 및 메모리상태는 A키(이전)및 D키(다음)를 눌러도 확인할 수 있습니다  				</pre> 				<br><br> 			</div> 			<div id = "floatingBox"> 				<pre id = "outputBox" class ="outputBox"></pre>  				<div id = "intermediateResult"> 					<img id = "d7"> 					<table style = "border-spacing:0px;margin:0px;table-layout:auto;"> 						<tbody id = "d8"></tbody> 					</table> 				</div> 			</div> 		</div> 	</body> </html> 

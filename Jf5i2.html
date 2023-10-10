@@ -1,0 +1,109 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0502.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 	</head> 	<body onload='f2();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"></div> 			<div id = "navigationBox"></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>Say it with style!를 진하게 또는 이탤릭체로 출력하는 문제입니다 이를 해결하는 다음 프로그램을 해석하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_StyleOptions_3.png" ><b><font color='red'></font></b> <br> 	  				<h4>알고리즘</h4> 				<pre style='white-space:normal;'> 프로그램시작 <br> &nbsp; &nbsp;틀 준비 <br> &nbsp; &nbsp;패널 준비 <br> &nbsp; &nbsp;틀에 패널 끼우고 실행 준비 완료 <br> 프로그램 종료 <br> <br> 패널 준비 <br> &nbsp; &nbsp;Say it with style! 텍스트 레이블 준비 <br> &nbsp; &nbsp;진하게 및 이탤릭 속성 준비 <br> &nbsp; &nbsp;진하게 및 이탤릭 속성 변경시 작동하도록 listener를 등록 <br> <br> 속성값 변경시 작동 <br> &nbsp; &nbsp;진하게 속성을 선택했으면 글자를 진하게 설정 <br> &nbsp; &nbsp;이탤릭 속성을 선택했으면 글자를 이탤릭체로 설정 <br></pre> 		 				<br><h4>프로그램 코드 <input id='btn' type='button' value='실행순서 및 메모리상태 확인' onclick='f5();'/></h4>  				<div id = "codeBox"><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Chapter06/StyleOptions_Main.java</font> 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.JFrame; 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*; 
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.event.*; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">	class StyleOptionsPanel <font color='red' title="클래스를 상속 받음">extends</font> JPanel   
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		private JLabel saying; 
+</pre><pre id="code0" class="unselectable codeClass">		private JCheckBox bold, italic; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 패널 준비 </b></font>
+</pre>
+<pre id="code1" class="unselectable codeClass">1		public StyleOptionsPanel() 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> Say it with style! 텍스트 레이블 준비 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			saying = new JLabel( "Say it with style!" ); 
+</pre><pre id="code0" class="unselectable codeClass">			saying.<font color='red' title="해당 객체에 출력할 텍스트의 글자모양 설정">setFont</font>( new Font("Helvetica", Font.PLAIN, 36 ) ); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 진하게 및 이탤릭 속성 준비 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			bold = new JCheckBox ("Bold"); 
+</pre><pre id="code0" class="unselectable codeClass">			bold.setBackground (Color.cyan); 
+</pre><pre id="code0" class="unselectable codeClass">			 
+</pre><pre id="code0" class="unselectable codeClass">			italic = new JCheckBox ("Italic"); 
+</pre><pre id="code0" class="unselectable codeClass">			italic.setBackground (Color.cyan); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 진하게 및 이탤릭 속성 변경시 작동하도록 listener를 등록 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			StyleListener listener = new StyleListener(); 
+</pre><pre id="code0" class="unselectable codeClass">			bold.<font color='red' title="체크박스 등의 컴퍼넌트에 리스너를 추가">addItemListener</font>(listener);	 
+</pre><pre id="code0" class="unselectable codeClass">			italic.<font color='red' title="체크박스 등의 컴퍼넌트에 리스너를 추가">addItemListener</font>(listener);	 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">// Say it with style!, 진하게 속성, 이탤릭 속성을 패널에 등록</font>  
+</pre><pre id="code0" class="unselectable codeClass">			add (saying); 
+</pre><pre id="code0" class="unselectable codeClass">			add (bold); 
+</pre><pre id="code0" class="unselectable codeClass">			add (italic); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">// 패널 배경색과 크기 설정</font> 
+</pre><pre id="code0" class="unselectable codeClass">			setBackground (Color.cyan); 
+</pre>
+<pre id="code2" class="unselectable codeClass">2			setPreferredSize (new Dimension(300, 100)); 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">		private class StyleListener <font color='red' title="인터페이스를 상속 받아 모든 메서드를 구현">implements</font> ItemListener	 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 속성값 변경시 작동 </b></font>
+</pre>
+<pre id="code3" class="unselectable codeClass">3			public void <font color='red' title="체크박스를 변경했을 때 호출되는 메서드">itemStateChanged</font>(ItemEvent event)	 
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre>
+<pre id="code4" class="unselectable codeClass">4				int style = Font.PLAIN; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">//<b> 진하게 속성을 선택했으면 글자를 진하게 설정 </b></font>
+</pre>
+<pre id="code5" class="unselectable codeClass">5				if (bold.isSelected()) 
+</pre>
+<pre id="code6" class="unselectable codeClass">6					style = Font.BOLD; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">//<b> 이탤릭 속성을 선택했으면 글자를 이탤릭체로 설정 </b></font>
+</pre>
+<pre id="code7" class="unselectable codeClass">7				if (italic.isSelected()) 
+</pre>
+<pre id="code8" class="unselectable codeClass">8					style += Font.ITALIC; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">// 글자를 Helvetica 폰트, 36크기로 지정된 속성에 맞춰 출력</font>  
+</pre>
+<pre id="code9" class="unselectable codeClass">9				saying.<font color='red' title="해당 객체에 출력할 텍스트의 글자모양 설정">setFont</font> (new Font ("Helvetica", style, 36));	 
+</pre>
+<pre id="code10" class="unselectable codeClass">10				return; 
+</pre><pre id="code0" class="unselectable codeClass">			} 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre>
+<pre id="code11" class="unselectable codeClass">11	<font color="green">// 진하게 속성 클릭하기(선택)</font> 
+</pre>
+<pre id="code12" class="unselectable codeClass">12	<font color="green">// 이탤릭체 속성 클릭하기(선택)</font> 
+</pre>
+<pre id="code13" class="unselectable codeClass">13	<font color="green">// 진하게 속성 클릭하기(해제)</font> 
+</pre>
+<pre id="code14" class="unselectable codeClass">14	<font color="green">// 프레임 우측상단 X버튼 클릭하기(종료)</font>	 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">	public class StyleOptions_Main 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 프로그램시작 </b></font>
+</pre>
+<pre id="code15" class="unselectable codeClass">15		public static void main (String[] args) 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 틀 준비 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			JFrame frame = new JFrame ("Style Options"); 
+</pre><pre id="code0" class="unselectable codeClass">			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 패널 준비 </b></font>
+</pre>
+<pre id="code16" class="unselectable codeClass">16			frame.getContentPane().add ( 
+</pre>
+<pre id="code17" class="unselectable codeClass">17							new StyleOptionsPanel()); 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 틀에 패널 끼우고 실행 준비 완료 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">			frame.pack(); 
+</pre>
+<pre id="code18" class="unselectable codeClass">18			frame.setVisible(true); 
+</pre><pre id="code0" class="unselectable codeClass">			 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 프로그램 종료 </b></font>
+</pre>
+<pre id="code19" class="unselectable codeClass">19			return; 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre></div>	 	 				<br><h4>키워드 설명</h4> 				<pre id = "d3" style='white-space:normal;'></pre> 			 				<h4>실행 순서</h4> 				<pre id = "d4" style='white-space:normal; width:800px;'> </pre> 				<pre style='white-space:normal;'> 					※ 실행순서 및 메모리상태는 A키(이전)및 D키(다음)를 눌러도 확인할 수 있습니다  				</pre> 				<br><br> 			</div> 			<div id = "floatingBox"> 				<pre id = "outputBox" class ="outputBox"></pre>  				<div id = "intermediateResult"> 					<img id = "d7"> 					<table style = "border-spacing:0px;margin:0px;table-layout:auto;"> 						<tbody id = "d8"></tbody> 					</table> 				</div> 			</div> 		</div> 	</body> </html> 

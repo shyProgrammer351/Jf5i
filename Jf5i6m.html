@@ -1,0 +1,111 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0506.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [  							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>On을 누르면 전구가 켜지고 Off를 누르면 전구가 꺼지는 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_1.png" > <b><font color='red'></font></b>
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_2.png" >  <br> 	   				<h4>프로그램 코드</h4> 				<pre>	import javax.swing.*;
+	import java.awt.*;
+	import java.awt.event.*;
+	class LightBulbControls extends JPanel	
+	{
+		private LightBulbPanel bulb;
+		private JButton onButton, offButton;
+1		public LightBulbControls (LightBulbPanel bulbPanel)
+		{
+			bulb = bulbPanel;
+			onButton = new JButton ("On");
+			onButton.setEnabled (false);
+			onButton.setMnemonic ('n');
+			onButton.setToolTipText ("Turn it on!");
+			onButton.addActionListener (new OnListener());	
+			offButton = new JButton ("Off");
+			offButton.setEnabled (true);
+			offButton.setMnemonic ('f');
+			offButton.setToolTipText ("Turn it off!");
+			offButton.addActionListener (new OffListener());	
+			setBackground (Color.black);
+			add (onButton);
+			add (offButton);
+15		}
+		private class OnListener implements ActionListener	
+		{
+16			public void actionPerformed (ActionEvent event)	
+			{
+17				bulb.setOn (true);
+18				onButton.setEnabled (false);
+19				offButton.setEnabled (true);
+20				bulb.repaint();
+			}
+		}
+		private class OffListener implements ActionListener	
+		{
+21			public void actionPerformed (ActionEvent event)	
+			{
+22				bulb.setOn (false);
+				onButton.setEnabled (true);
+				offButton.setEnabled (false);
+25				bulb.repaint();
+			}
+		}
+	}
+	class LightBulbPanel extends JPanel	
+	{
+		private boolean on;
+		private ImageIcon lightOn, lightOff;
+		private JLabel imageLabel;
+26		public LightBulbPanel()
+		{
+			lightOn = new ImageIcon ("./Chapter05/image/lightBulbOn.gif");
+			lightOff = new ImageIcon ("./Chapter05/image/lightBulbOff.gif");
+			setBackground (Color.black);
+			on = true;
+			imageLabel = new JLabel (lightOff);
+			add (imageLabel);
+32		}
+33		public void paintComponent (Graphics page)
+		{
+			super.paintComponent(page);
+			if (on)
+				imageLabel.setIcon (lightOn);
+			else
+				imageLabel.setIcon (lightOff);
+38		}
+39		public void setOn (boolean lightBulbOn)
+		{
+40			on = lightBulbOn;
+		}
+	}
+58
+59
+	public class LightBulb_Main
+	{
+41		public static void main (String[] args)
+		{
+			JFrame frame = new JFrame ("Light Bulb");
+			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+44			LightBulbPanel bulb
+441			                   = new LightBulbPanel();
+45			LightBulbControls controls
+451			                   = new LightBulbControls (bulb);
+			JPanel panel = new JPanel();
+			panel.setBackground (Color.black);
+			panel.setLayout (new BoxLayout(panel, BoxLayout.Y_AXIS));
+			panel.add (Box.createRigidArea (new Dimension (0, 20)));
+			panel.add (bulb);
+			panel.add (Box.createRigidArea (new Dimension (0, 10)));
+			panel.add (controls);
+			panel.add (Box.createRigidArea (new Dimension (0, 10)));
+			frame.getContentPane().add( panel );		
+			frame.pack();
+56			frame.setVisible(true);
+57			return;
+		}
+	}
+	</pre> 				<br>
+<h4>58(off버튼클릭)했을 때 실행순서(7개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>21			public void actionPerformed (ActionEvent event)	</pre><br>
+<pre style='margin:0;padding:0;'>22				bulb.setOn (false);</pre><br>
+<pre style='margin:0;padding:0;'>39		public void setOn (boolean lightBulbOn)</pre><br>
+<pre style='margin:0;padding:0;'>40			on = lightBulbOn;</pre><br>
+<pre style='margin:0;padding:0;'>25				bulb.repaint();</pre><br>
+<pre style='margin:0;padding:0;'>33		public void paintComponent (Graphics page)</pre><br>
+<pre style='margin:0;padding:0;'>38		}</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_2.png'> <br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_1.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_2.png' /><br>&nbsp;</td></tr>
+</table> 			</div> 		</div> 	</body> </html> 

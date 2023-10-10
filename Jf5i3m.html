@@ -1,0 +1,34 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0503.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [  							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>숫자를 입력받아 홀수인지 짝수인지 맞추는 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_1.png" ><b><font color='red'></font></b>
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_2.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_3.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_4.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_5.png" > <br> 	   				<h4>프로그램 코드</h4> 				<pre>	import javax.swing.JOptionPane;
+	public class EvenOdd_Main
+	{
+1		public static void main (String[] args)
+		{
+			String numStr, result;
+			int num, again;
+	
+2			do 
+			{
+				numStr = JOptionPane.showInputDialog ("Enter an integer: ");	
+3				num = Integer.parseInt(numStr); 	
+				result = "That number is " + ((num%2 == 0) ? "even" : "odd");
+4				JOptionPane.showMessageDialog (null, result);	
+5				again = JOptionPane.showConfirmDialog (null, "Do Another?");	
+6			} while( again == JOptionPane.YES_OPTION );	
+7			return;
+		}
+	}
+	</pre> 				<br>
+<h4>4 5(예선택)했을 때 실행순서(6개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>6			} while( again == JOptionPane.YES_OPTION );	</pre><br>
+<pre style='margin:0;padding:0;'>2			do </pre><br>
+<pre style='margin:0;padding:0;'>3				num = Integer.parseInt(numStr); 	</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_5.png'> <br>
+<pre style='margin:0;padding:0;'>4				JOptionPane.showMessageDialog (null, result);	</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_3.png'> <br>
+<pre style='margin:0;padding:0;'>5				again = JOptionPane.showConfirmDialog (null, "Do Another?");	</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_4.png'> <br>
+<pre style='margin:0;padding:0;'>6			} while( again == JOptionPane.YES_OPTION );	</pre><br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_2.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_5.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_3.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_4.png' /><br>&nbsp;</td></tr>
+</table> 			</div> 		</div> 	</body> </html> 

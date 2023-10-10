@@ -1,0 +1,64 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0505.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			var d10 = "20 24 3 6 23 26 28 12 15 7 11 29 27"; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>마우스로 클릭하면 점이 생기고 해당 좌표를 알려주는 GUI 문제입니다 실행순서를 클릭하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_1.png" ><b><font color='red'></font></b>
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_2.png" > <br>  	 				<h4>프로그램 코드</h4> 				<pre></pre><pre id="code0" class="unselectable codeClass">	import javax.swing.JFrame;
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.JPanel;
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*;
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.event.*;
+
+</pre><pre id="code0" class="unselectable codeClass">	class CoordinatesPanel extends JPanel	
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code0" class="unselectable codeClass">		private final int SIZE = 6;
+</pre><pre id="code0" class="unselectable codeClass">		private int x = 50, y = 50; 
+
+</pre><pre id="code3" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('3')">3		public CoordinatesPanel()
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			addMouseListener( new CoordinatesListener() );	
+</pre><pre id="code0" class="unselectable codeClass">			setBackground( Color.black );
+</pre><pre id="code6" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('6')">6			setPreferredSize( new Dimension(300, 200) );
+</pre><pre id="code0" class="unselectable codeClass">		}
+
+</pre><pre id="code7" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('7')">7		public void paintComponent (Graphics page)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			super.paintComponent(page);
+
+</pre><pre id="code0" class="unselectable codeClass">			page.setColor (Color.green);
+
+</pre><pre id="code0" class="unselectable codeClass">			page.fillOval (x, y, SIZE, SIZE);
+
+</pre><pre id="code11" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('11')">11			page.drawString ("Coordinates: (" + x + ", " + y + ")", 5, 15);
+</pre><pre id="code0" class="unselectable codeClass">		}
+
+</pre><pre id="code0" class="unselectable codeClass">		private class CoordinatesListener implements MouseListener	
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code12" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('12')">12			public void mousePressed (MouseEvent event)	
+</pre><pre id="code0" class="unselectable codeClass">			{
+</pre><pre id="code0" class="unselectable codeClass">				x = event.getX();
+</pre><pre id="code0" class="unselectable codeClass">				y = event.getY();
+</pre><pre id="code15" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('15')">15				repaint();
+</pre><pre id="code0" class="unselectable codeClass">			}
+
+</pre><pre id="code0" class="unselectable codeClass">			public void mouseClicked (MouseEvent event) {}
+</pre><pre id="code0" class="unselectable codeClass">			public void mouseReleased (MouseEvent event) {}
+</pre><pre id="code0" class="unselectable codeClass">			public void mouseEntered (MouseEvent event) {}
+</pre><pre id="code19" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('19')">19			public void mouseExited (MouseEvent event) {}
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">	}
+
+</pre><pre id="code28" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('28')">28	<font color="green">// (211,142) 좌표에 클릭</font>
+</pre><pre id="code29" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('29')">29	<font color="green">// 프레임 우측상단 X버튼 클릭하기(종료)</font>	
+
+</pre><pre id="code0" class="unselectable codeClass">	public class Coordinates_Main
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code20" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('20')">20		public static void main (String[] args)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			JFrame frame = new JFrame ("Coordinates");
+</pre><pre id="code0" class="unselectable codeClass">			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+</pre><pre id="code23" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('23')">23			frame.getContentPane().add (
+</pre><pre id="code24" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('24')">24					new CoordinatesPanel());
+</pre><pre id="code0" class="unselectable codeClass">			frame.pack();
+</pre><pre id="code26" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('26')">26			frame.setVisible(true);
+</pre><pre id="code27" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('27')">27			return;
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">	}
+</pre>
+</pre> 			</div> 			<div id = "floatingBox"> 				<b>실행 순서</b> 				<pre id = "d4" style='white-space:normal; word-wrap:break-word; width:150px;'></pre> 			</div> 		</div> 	</body> </html>   

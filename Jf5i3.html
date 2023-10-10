@@ -1,0 +1,44 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0503.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 	</head> 	<body onload='f2();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"></div> 			<div id = "navigationBox"></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>숫자를 입력받아 홀수인지 짝수인지 맞추는 문제입니다 이를 해결하는 다음 프로그램을 해석하세요 </pre> 				
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_1.png" ><b><font color='red'></font></b>
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_2.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_3.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_4.png" >
+ <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_DialogueBox_5.png" > <br> 	  				<h4>알고리즘</h4> 				<pre style='white-space:normal;'>프로그램시작 <br>&nbsp; &nbsp;&nbsp; &nbsp;숫자 입력 <br>&nbsp; &nbsp;&nbsp; &nbsp;홀수인지 짝수인지 출력 <br>&nbsp; &nbsp;계속 반복할지 확인 <br>프로그램 종료 <br></pre> 		 				<br><h4>프로그램 코드 <input id='btn' type='button' value='실행순서 및 메모리상태 확인' onclick='f5();'/></h4>  				<div id = "codeBox"><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Chapter06/EvenOdd_Main.java</font> 
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.JOptionPane; 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">	public class EvenOdd_Main 
+</pre><pre id="code0" class="unselectable codeClass">	{ 
+</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 프로그램시작 </b></font>
+</pre>
+<pre id="code1" class="unselectable codeClass">1		public static void main (String[] args) 
+</pre><pre id="code0" class="unselectable codeClass">		{ 
+</pre><pre id="code0" class="unselectable codeClass">			String numStr, result; 
+</pre><pre id="code0" class="unselectable codeClass">			int num, again; 
+</pre><pre id="code0" class="unselectable codeClass">	 
+</pre>
+<pre id="code2" class="unselectable codeClass">2			do  
+</pre><pre id="code0" class="unselectable codeClass">			{ 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">//<b> 숫자 입력 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">				numStr = JOptionPane.<font color='red' title="사용자에게 문자열을 입력받는 대화상자 제시">showInputDialog</font> ("Enter an integer: ");	 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">// 35, 7의 순서대로 입력한다고 가정</font> 
+</pre>
+<pre id="code3" class="unselectable codeClass">3				num = <font color='red' title="전달인자를 정수형으로 변환">Integer.parseInt</font>(numStr); 	 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">//<b> 홀수인지 짝수인지 출력 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">				result = "That number is " + ((num%2 == 0) ? "even" : "odd"); 
+</pre>
+<pre id="code4" class="unselectable codeClass">4				JOptionPane.<font color='red' title="문자열을 출력하는 대화상자 제시">showMessageDialog</font> (null, result);	 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">//<b> 계속 반복할지 확인 </b></font>
+</pre><pre id="code0" class="unselectable codeClass">				<font color="green">// 예, 아니오의 순서대로 선택한다고 가정</font>  
+</pre>
+<pre id="code5" class="unselectable codeClass">5				again = JOptionPane.<font color='red' title="사용자에게 예, 아니오, 취소를 확인받는 대화상자 제시">showConfirmDialog</font> (null, "Do Another?");	 
+</pre>
+<pre id="code6" class="unselectable codeClass">6			} while( again == JOptionPane.<font color='red' title="예 버튼을 클릭한 경우의 값">YES_OPTION</font> );	 
+</pre><pre id="code0" class="unselectable codeClass"> 
+</pre><pre id="code0" class="unselectable codeClass">			<font color="green">//<b> 프로그램 종료 </b></font>
+</pre>
+<pre id="code7" class="unselectable codeClass">7			return; 
+</pre><pre id="code0" class="unselectable codeClass">		} 
+</pre><pre id="code0" class="unselectable codeClass">	} 
+</pre></div>	 	 				<br><h4>키워드 설명</h4> 				<pre id = "d3" style='white-space:normal;'></pre> 			 				<h4>실행 순서</h4> 				<pre id = "d4" style='white-space:normal; width:800px;'> </pre> 				<pre style='white-space:normal;'> 					※ 실행순서 및 메모리상태는 A키(이전)및 D키(다음)를 눌러도 확인할 수 있습니다  				</pre> 				<br><br> 			</div> 			<div id = "floatingBox"> 				<pre id = "outputBox" class ="outputBox"></pre>  				<div id = "intermediateResult"> 					<img id = "d7"> 					<table style = "border-spacing:0px;margin:0px;table-layout:auto;"> 						<tbody id = "d8"></tbody> 					</table> 				</div> 			</div> 		</div> 	</body> </html> 

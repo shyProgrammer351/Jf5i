@@ -1,0 +1,71 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0504.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			var d10 = "26 30 6 14 29 32 34 18 25 15 17 35 18 25 15 17 36 33"; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>웃는 모양의 아이콘이 틀 안에서 상하좌우로 계속 움직이는 GUI 문제입니다 실행순서를 클릭하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_1.png" ><b><font color='red'></font></b>
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_2.png" >
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_3.png" > <br>  	 				<h4>프로그램 코드</h4> 				<pre>
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*;
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.event.*;
+</pre><pre id="code0" class="unselectable codeClass">	import javax.swing.*;
+
+</pre><pre id="code0" class="unselectable codeClass">	class ReboundPanel extends JPanel	
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code0" class="unselectable codeClass">		private final int WIDTH = 300, HEIGHT = 100;
+</pre><pre id="code0" class="unselectable codeClass">		private final int DELAY = 20, IMAGE_SIZE = 35;
+
+</pre><pre id="code0" class="unselectable codeClass">		private ImageIcon image;
+</pre><pre id="code0" class="unselectable codeClass">		private Timer timer;
+</pre><pre id="code0" class="unselectable codeClass">		private int x, y, moveX, moveY;
+</pre><pre id="code0" class="unselectable codeClass">		
+</pre><pre id="code6" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('6')">6		public ReboundPanel()
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			timer = new Timer(DELAY, new ReboundListener());
+</pre><pre id="code0" class="unselectable codeClass">			image = new ImageIcon ("./Chapter05/image/happyFace.gif");
+
+</pre><pre id="code0" class="unselectable codeClass">			x = 0;
+</pre><pre id="code0" class="unselectable codeClass">			y = 40;
+</pre><pre id="code0" class="unselectable codeClass">			moveX = moveY = 3;
+</pre><pre id="code0" class="unselectable codeClass">			setPreferredSize (new Dimension(WIDTH, HEIGHT));
+</pre><pre id="code0" class="unselectable codeClass">			setBackground (Color.black);
+</pre><pre id="code14" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('14')">14			timer.start();
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code15" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('15')">15		public void paintComponent (Graphics page)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			super.paintComponent (page);
+</pre><pre id="code17" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('17')">17			image.paintIcon (this, page, x, y);
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">		private class ReboundListener implements ActionListener	
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code18" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('18')">18			public void actionPerformed (ActionEvent event)	
+</pre><pre id="code0" class="unselectable codeClass">			{
+</pre><pre id="code0" class="unselectable codeClass">				x += moveX;
+</pre><pre id="code0" class="unselectable codeClass">				y += moveY;
+
+</pre><pre id="code0" class="unselectable codeClass">				if (x <= 0 || x >= WIDTH-IMAGE_SIZE)
+</pre><pre id="code0" class="unselectable codeClass">					moveX = moveX * -1;
+</pre><pre id="code0" class="unselectable codeClass">				
+</pre><pre id="code0" class="unselectable codeClass">				if (y <= 0 || y >= HEIGHT-IMAGE_SIZE)
+</pre><pre id="code0" class="unselectable codeClass">					moveY = moveY * -1;
+</pre><pre id="code0" class="unselectable codeClass">				
+</pre><pre id="code25" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('25')">25				repaint();	
+</pre><pre id="code0" class="unselectable codeClass">			}
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">	}
+
+</pre><pre id="code34" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('34')">34	<font color="green">// 첫번째 타이머 호출</font>
+</pre><pre id="code35" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('35')">35	<font color="green">// 두번째 타이머 호출</font>
+</pre><pre id="code36" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('36')">36	<font color="green">// 프레임 우측상단 X버튼 클릭하기(종료)</font>	
+
+</pre><pre id="code0" class="unselectable codeClass">	public class Rebound_Main
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code26" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('26')">26		public static void main (String[] args)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			JFrame frame = new JFrame ("Rebound");
+</pre><pre id="code0" class="unselectable codeClass">			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+</pre><pre id="code29" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('29')">29			frame.getContentPane().add(
+</pre><pre id="code30" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('30')">30									new ReboundPanel());
+</pre><pre id="code0" class="unselectable codeClass">			frame.pack();
+</pre><pre id="code32" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('32')">32			frame.setVisible(true);
+</pre><pre id="code33" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('33')">33			return;
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">	}
+</pre>
+</pre> 			</div> 			<div id = "floatingBox"> 				<b>실행 순서</b> 				<pre id = "d4" style='white-space:normal; word-wrap:break-word; width:150px;'></pre> 			</div> 		</div> 	</body> </html>   

@@ -1,0 +1,75 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0504.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [  							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>웃는 모양의 아이콘이 틀 안에서 상하좌우로 계속 움직이는 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_1.png" ><b><font color='red'></font></b>
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_2.png" >
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_3.png" > <br> 	   				<h4>프로그램 코드</h4> 				<pre>	import java.awt.*;
+	import java.awt.event.*;
+	import javax.swing.*;
+	class ReboundPanel extends JPanel	
+	{
+		private final int WIDTH = 300, HEIGHT = 100;
+		private final int DELAY = 20, IMAGE_SIZE = 35;
+		private ImageIcon image;
+		private Timer timer;
+		private int x, y, moveX, moveY;
+		
+6		public ReboundPanel()
+		{
+			timer = new Timer(DELAY, new ReboundListener());
+			image = new ImageIcon ("./Chapter05/image/happyFace.gif");
+			x = 0;
+			y = 40;
+			moveX = moveY = 3;
+			setPreferredSize (new Dimension(WIDTH, HEIGHT));
+			setBackground (Color.black);
+14			timer.start();
+		}
+15		public void paintComponent (Graphics page)
+		{
+			super.paintComponent (page);
+17			image.paintIcon (this, page, x, y);
+		}
+		private class ReboundListener implements ActionListener	
+		{
+18			public void actionPerformed (ActionEvent event)	
+			{
+				x += moveX;
+				y += moveY;
+				if (x <= 0 || x >= WIDTH-IMAGE_SIZE)
+					moveX = moveX * -1;
+				
+				if (y <= 0 || y >= HEIGHT-IMAGE_SIZE)
+					moveY = moveY * -1;
+				
+25				repaint();	
+			}
+		}
+	}
+34
+35
+36
+	public class Rebound_Main
+	{
+26		public static void main (String[] args)
+		{
+			JFrame frame = new JFrame ("Rebound");
+			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+29			frame.getContentPane().add(
+30									new ReboundPanel());
+			frame.pack();
+32			frame.setVisible(true);
+33			return;
+		}
+	}
+	</pre> 				<br>
+<h4>26과 32 사이의 실행순서(4개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>30									new ReboundPanel());</pre><br>
+<pre style='margin:0;padding:0;'>6		public ReboundPanel()</pre><br>
+<pre style='margin:0;padding:0;'>14			timer.start();</pre><br>
+<pre style='margin:0;padding:0;'>29			frame.getContentPane().add(</pre><br>
+<h4>34(타이머호출)했을 때 실행순서(4개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>18			public void actionPerformed (ActionEvent event)	</pre><br>
+<pre style='margin:0;padding:0;'>25				repaint();	</pre><br>
+<pre style='margin:0;padding:0;'>15		public void paintComponent (Graphics page)</pre><br>
+<pre style='margin:0;padding:0;'>17			image.paintIcon (this, page, x, y);</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_2.png'> <br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_1.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_2.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Timer_3.png' /><br>&nbsp;</td></tr>
+</table> 			</div> 		</div> 	</body> </html> 

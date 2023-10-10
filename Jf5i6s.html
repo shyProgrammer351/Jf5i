@@ -1,0 +1,118 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0506.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			var d10 = "41 441 26 32 44 451 1 15 45 56 58 21 22 39 40 25 33 38 59 57"; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>On을 누르면 전구가 켜지고 Off를 누르면 전구가 꺼지는 GUI 문제입니다 실행순서를 클릭하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_1.png" > <b><font color='red'></font></b>
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_2.png" >  <br>  	 				<h4>프로그램 코드</h4> 				<pre></pre><pre id="code0" class="unselectable codeClass">	import javax.swing.*;
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.*;
+</pre><pre id="code0" class="unselectable codeClass">	import java.awt.event.*;
+
+</pre><pre id="code0" class="unselectable codeClass">	class LightBulbControls extends JPanel	
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code0" class="unselectable codeClass">		private LightBulbPanel bulb;
+</pre><pre id="code0" class="unselectable codeClass">		private JButton onButton, offButton;
+
+</pre><pre id="code1" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('1')">1		public LightBulbControls (LightBulbPanel bulbPanel)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			bulb = bulbPanel;
+
+</pre><pre id="code0" class="unselectable codeClass">			onButton = new JButton ("On");
+</pre><pre id="code0" class="unselectable codeClass">			onButton.setEnabled (false);
+</pre><pre id="code0" class="unselectable codeClass">			onButton.setMnemonic ('n');
+</pre><pre id="code0" class="unselectable codeClass">			onButton.setToolTipText ("Turn it on!");
+</pre><pre id="code0" class="unselectable codeClass">			onButton.addActionListener (new OnListener());	
+
+</pre><pre id="code0" class="unselectable codeClass">			offButton = new JButton ("Off");
+</pre><pre id="code0" class="unselectable codeClass">			offButton.setEnabled (true);
+</pre><pre id="code0" class="unselectable codeClass">			offButton.setMnemonic ('f');
+</pre><pre id="code0" class="unselectable codeClass">			offButton.setToolTipText ("Turn it off!");
+</pre><pre id="code0" class="unselectable codeClass">			offButton.addActionListener (new OffListener());	
+
+</pre><pre id="code0" class="unselectable codeClass">			setBackground (Color.black);
+</pre><pre id="code0" class="unselectable codeClass">			add (onButton);
+</pre><pre id="code0" class="unselectable codeClass">			add (offButton);
+</pre><pre id="code15" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('15')">15		}
+</pre><pre id="code0" class="unselectable codeClass">		private class OnListener implements ActionListener	
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code16" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('16')">16			public void actionPerformed (ActionEvent event)	
+</pre><pre id="code0" class="unselectable codeClass">			{
+</pre><pre id="code17" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('17')">17				bulb.setOn (true);
+</pre><pre id="code18" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('18')">18				onButton.setEnabled (false);
+</pre><pre id="code19" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('19')">19				offButton.setEnabled (true);
+</pre><pre id="code20" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('20')">20				bulb.repaint();
+</pre><pre id="code0" class="unselectable codeClass">			}
+</pre><pre id="code0" class="unselectable codeClass">		}
+
+</pre><pre id="code0" class="unselectable codeClass">		private class OffListener implements ActionListener	
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code21" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('21')">21			public void actionPerformed (ActionEvent event)	
+</pre><pre id="code0" class="unselectable codeClass">			{
+</pre><pre id="code22" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('22')">22				bulb.setOn (false);
+</pre><pre id="code0" class="unselectable codeClass">				onButton.setEnabled (true);
+</pre><pre id="code0" class="unselectable codeClass">				offButton.setEnabled (false);
+</pre><pre id="code25" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('25')">25				bulb.repaint();
+</pre><pre id="code0" class="unselectable codeClass">			}
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">	}
+
+</pre><pre id="code0" class="unselectable codeClass">	class LightBulbPanel extends JPanel	
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code0" class="unselectable codeClass">		private boolean on;
+</pre><pre id="code0" class="unselectable codeClass">		private ImageIcon lightOn, lightOff;
+</pre><pre id="code0" class="unselectable codeClass">		private JLabel imageLabel;
+
+</pre><pre id="code26" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('26')">26		public LightBulbPanel()
+</pre><pre id="code0" class="unselectable codeClass">		{
+
+</pre><pre id="code0" class="unselectable codeClass">			lightOn = new ImageIcon ("./Chapter05/image/lightBulbOn.gif");
+</pre><pre id="code0" class="unselectable codeClass">			lightOff = new ImageIcon ("./Chapter05/image/lightBulbOff.gif");
+
+</pre><pre id="code0" class="unselectable codeClass">			setBackground (Color.black);
+
+</pre><pre id="code0" class="unselectable codeClass">			on = true;
+</pre><pre id="code0" class="unselectable codeClass">			imageLabel = new JLabel (lightOff);
+</pre><pre id="code0" class="unselectable codeClass">			add (imageLabel);
+</pre><pre id="code32" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('32')">32		}
+
+</pre><pre id="code33" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('33')">33		public void paintComponent (Graphics page)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			super.paintComponent(page);
+
+</pre><pre id="code0" class="unselectable codeClass">			if (on)
+</pre><pre id="code0" class="unselectable codeClass">				imageLabel.setIcon (lightOn);
+</pre><pre id="code0" class="unselectable codeClass">			else
+</pre><pre id="code0" class="unselectable codeClass">				imageLabel.setIcon (lightOff);
+</pre><pre id="code38" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('38')">38		}
+
+</pre><pre id="code39" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('39')">39		public void setOn (boolean lightBulbOn)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code40" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('40')">40			on = lightBulbOn;
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">	}
+
+</pre><pre id="code58" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('58')">58	<font color="green">// off 버튼을 클릭</font>
+</pre><pre id="code59" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('59')">59	<font color="green">// 프레임 우측상단 X버튼 클릭하기(종료)</font>	
+</pre><pre id="code0" class="unselectable codeClass">	public class LightBulb_Main
+</pre><pre id="code0" class="unselectable codeClass">	{
+</pre><pre id="code41" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('41')">41		public static void main (String[] args)
+</pre><pre id="code0" class="unselectable codeClass">		{
+</pre><pre id="code0" class="unselectable codeClass">			JFrame frame = new JFrame ("Light Bulb");
+</pre><pre id="code0" class="unselectable codeClass">			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+</pre><pre id="code44" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('44')">44			LightBulbPanel bulb
+</pre><pre id="code441" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('441')">441			                   = new LightBulbPanel();
+</pre><pre id="code45" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('45')">45			LightBulbControls controls
+</pre><pre id="code451" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('451')">451			                   = new LightBulbControls (bulb);
+</pre><pre id="code0" class="unselectable codeClass">			JPanel panel = new JPanel();
+</pre><pre id="code0" class="unselectable codeClass">			panel.setBackground (Color.black);
+</pre><pre id="code0" class="unselectable codeClass">			panel.setLayout (new BoxLayout(panel, BoxLayout.Y_AXIS));
+</pre><pre id="code0" class="unselectable codeClass">			panel.add (Box.createRigidArea (new Dimension (0, 20)));
+</pre><pre id="code0" class="unselectable codeClass">			panel.add (bulb);
+</pre><pre id="code0" class="unselectable codeClass">			panel.add (Box.createRigidArea (new Dimension (0, 10)));
+</pre><pre id="code0" class="unselectable codeClass">			panel.add (controls);
+</pre><pre id="code0" class="unselectable codeClass">			panel.add (Box.createRigidArea (new Dimension (0, 10)));
+
+</pre><pre id="code0" class="unselectable codeClass">			frame.getContentPane().add( panel );		
+</pre><pre id="code0" class="unselectable codeClass">			frame.pack();
+</pre><pre id="code56" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('56')">56			frame.setVisible(true);
+</pre><pre id="code57" class="unselectable codeClass" onmouseover="f8(this.id, true) " onmouseout="f8(this.id, false)" onclick="f7('57')">57			return;
+</pre><pre id="code0" class="unselectable codeClass">		}
+</pre><pre id="code0" class="unselectable codeClass">	}
+</pre>
+</pre> 			</div> 			<div id = "floatingBox"> 				<b>실행 순서</b> 				<pre id = "d4" style='white-space:normal; word-wrap:break-word; width:150px;'></pre> 			</div> 		</div> 	</body> </html>   

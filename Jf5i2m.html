@@ -1,0 +1,87 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0502.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [  							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>Say it with style!를 진하게 또는 이탤릭체로 출력하는 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_StyleOptions_3.png" ><b><font color='red'></font></b> <br> 	   				<h4>프로그램 코드</h4> 				<pre>	import javax.swing.JFrame;
+	import javax.swing.*;
+	import java.awt.*;
+	import java.awt.event.*;
+	
+	class StyleOptionsPanel extends JPanel  
+	{
+		private JLabel saying;
+		private JCheckBox bold, italic;
+	
+1		public StyleOptionsPanel()
+		{
+			saying = new JLabel( "Say it with style!" );
+			saying.setFont( new Font("Helvetica", Font.PLAIN, 36 ) );
+	
+			bold = new JCheckBox ("Bold");
+			bold.setBackground (Color.cyan);
+			
+			italic = new JCheckBox ("Italic");
+			italic.setBackground (Color.cyan);
+	
+			StyleListener listener = new StyleListener();
+			bold.addItemListener(listener);	
+			italic.addItemListener(listener);	
+	
+			add (saying);
+			add (bold);
+			add (italic);
+	
+			setBackground (Color.cyan);
+2			setPreferredSize (new Dimension(300, 100));
+		}
+		private class StyleListener implements ItemListener	
+		{
+3			public void itemStateChanged(ItemEvent event)	
+			{
+4				int style = Font.PLAIN;
+	
+5				if (bold.isSelected())
+6					style = Font.BOLD;
+	
+7				if (italic.isSelected())
+8					style += Font.ITALIC;
+	
+9				saying.setFont (new Font ("Helvetica", style, 36));	
+10				return;
+			}
+		}
+	}
+	
+11
+12
+13
+14
+	public class StyleOptions_Main
+	{
+15		public static void main (String[] args)
+		{
+			JFrame frame = new JFrame ("Style Options");
+			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+	
+16			frame.getContentPane().add (
+17							new StyleOptionsPanel());
+	
+			frame.pack();
+18			frame.setVisible(true);
+			
+19			return;
+		}
+	}
+	</pre> 				<br>
+<h4>15과 18 사이의 실행순서(4개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>17							new StyleOptionsPanel());</pre><br>
+<pre style='margin:0;padding:0;'>1		public StyleOptionsPanel()</pre><br>
+<pre style='margin:0;padding:0;'>2			setPreferredSize (new Dimension(300, 100));</pre><br>
+<pre style='margin:0;padding:0;'>16			frame.getContentPane().add (</pre><br>
+<h4>11(진하게선택)했을 때 실행순서(7개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'>3			public void itemStateChanged(ItemEvent event)	</pre><br>
+<pre style='margin:0;padding:0;'>4				int style = Font.PLAIN;</pre><br>
+<pre style='margin:0;padding:0;'>5				if (bold.isSelected())</pre><br>
+<pre style='margin:0;padding:0;'>6					style = Font.BOLD;</pre><br>
+<pre style='margin:0;padding:0;'>7				if (italic.isSelected())</pre><br>
+<pre style='margin:0;padding:0;'>9				saying.setFont (new Font ("Helvetica", style, 36));	</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_StyleOptions_2.png'> <br>
+<pre style='margin:0;padding:0;'>10				return;</pre><br>
+<table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_StyleOptions_1.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_StyleOptions_2.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>3</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_StyleOptions_3.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>4</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_StyleOptions_4.png' /><br>&nbsp;</td></tr>
+</table> 			</div> 		</div> 	</body> </html> 
