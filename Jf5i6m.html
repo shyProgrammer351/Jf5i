@@ -1,5 +1,5 @@
-<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0506.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [  							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>On을 누르면 전구가 켜지고 Off를 누르면 전구가 꺼지는 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
-<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_1.png" > <b><font color='red'></font></b>
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous"></script> 		<link rel="stylesheet" href="../layout.css"> 		<script type="text/javascript" src="../functions.js"></script> 		<script> 			const d10 = [ ["2"], 							]; 		</script> 	</head> 	<body oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> JAVA 프로그래밍 </div> 			<div id = "navigationBox"><ol><li><a href='../Jf1i/Jf1i1.html'>입출력/선택문</a></li><li><a href='../Jf2i/Jf2i1.html'>반복문/배열/예외</a></li><li><a href='../Jf3i/Jf3i1.html'>클래스와 객체/패키지</a></li><li><a href='../Jf4i/Jf4i1.html'>상속 및 다형성</a></li><li><a href='../Jf5i/Jf5i1.html'>GUI 기초</a></li><ul><li><a href='../Jf5i/Jf5i1.html'>버튼 클릭</a></li><li><a href='../Jf5i/Jf5i2.html'>폰트 속성 변경</a></li><li><a href='../Jf5i/Jf5i3.html'>홀짝 맞추기</a></li><li><a href='../Jf5i/Jf5i4.html'>웃는 아이콘 이동</a></li><li><a href='../Jf5i/Jf5i5.html'>마우스 클릭 좌표</a></li><li><a href='../Jf5i/Jf5i6.html'>전구 On-Off</a></li><ul><li><a href='Jf5i6.html'>코드읽기</a></li><li><a href='Jf5i6a.html'>알고리즘</a></li><li><a href='Jf5i6k.html'>키워드</a></li><li><a href='Jf5i6b.html'>빈칸채우기</a></li><li><a href='Jf5i6s.html'>실행순서</a></li><li><a href='Jf5i6m.html'>실행상태</a></li><li><a href='./../../github_sourceCode/Chapter05/LightBulb_Main.java' target='_blank'>소스코드</a></li></ul></ul><li><a href='../Jf6i/Jf6i1.html'>GUI 응용</a></li><li><a href='../Jf7i/Jf7i1.html'>제네릭/컬렉션/파일</a></li><li><a href='../Jf8i/Jf8i1.html'>스레드/네트워크(1:1)</a></li><li><a href='../Jf9i/Jf9i1.html'>네트워크(1:n)</a></li></ol></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>On을 누르면 전구가 켜지고 Off를 누르면 전구가 꺼지는 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_1.png" > 
 <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_2.png" >  <br> 	   				<h4>프로그램 코드</h4> 				<pre>	import javax.swing.*;
 	import java.awt.*;
 	import java.awt.event.*;
@@ -7,7 +7,7 @@
 	{
 		private LightBulbPanel bulb;
 		private JButton onButton, offButton;
-1		public LightBulbControls (LightBulbPanel bulbPanel)
+<a href='javascript:history.back();' name='1'>1</a>		public LightBulbControls( LightBulbPanel bulbPanel )
 		{
 			bulb = bulbPanel;
 			onButton = new JButton ("On");
@@ -23,25 +23,25 @@
 			setBackground (Color.black);
 			add (onButton);
 			add (offButton);
-15		}
+<a href='javascript:history.back();' name='15'>15</a>		}
 		private class OnListener implements ActionListener	
 		{
-16			public void actionPerformed (ActionEvent event)	
+<a href='javascript:history.back();' name='16'>16</a>			public void actionPerformed (ActionEvent event)	
 			{
-17				bulb.setOn (true);
-18				onButton.setEnabled (false);
-19				offButton.setEnabled (true);
-20				bulb.repaint();
+<a href='javascript:history.back();' name='17'>17</a>				bulb.setOn (true);
+<a href='javascript:history.back();' name='18'>18</a>				onButton.setEnabled (false);
+<a href='javascript:history.back();' name='19'>19</a>				offButton.setEnabled (true);
+<a href='javascript:history.back();' name='20'>20</a>				bulb.repaint();
 			}
 		}
 		private class OffListener implements ActionListener	
 		{
-21			public void actionPerformed (ActionEvent event)	
+<a href='javascript:history.back();' name='21'>21</a>			public void actionPerformed (ActionEvent event)	
 			{
-22				bulb.setOn (false);
+<a href='javascript:history.back();' name='22'>22</a>				bulb.setOn (false);
 				onButton.setEnabled (true);
 				offButton.setEnabled (false);
-25				bulb.repaint();
+<a href='javascript:history.back();' name='25'>25</a>				bulb.repaint();
 			}
 		}
 	}
@@ -50,7 +50,7 @@
 		private boolean on;
 		private ImageIcon lightOn, lightOff;
 		private JLabel imageLabel;
-26		public LightBulbPanel()
+<a href='javascript:history.back();' name='26'>26</a>		public LightBulbPanel()
 		{
 			lightOn = new ImageIcon ("./Chapter05/image/lightBulbOn.gif");
 			lightOff = new ImageIcon ("./Chapter05/image/lightBulbOff.gif");
@@ -58,32 +58,32 @@
 			on = true;
 			imageLabel = new JLabel (lightOff);
 			add (imageLabel);
-32		}
-33		public void paintComponent (Graphics page)
+<a href='javascript:history.back();' name='32'>32</a>		}
+<a href='javascript:history.back();' name='33'>33</a>		public void paintComponent (Graphics page)
 		{
 			super.paintComponent(page);
 			if (on)
 				imageLabel.setIcon (lightOn);
 			else
 				imageLabel.setIcon (lightOff);
-38		}
-39		public void setOn (boolean lightBulbOn)
+<a href='javascript:history.back();' name='38'>38</a>		}
+<a href='javascript:history.back();' name='39'>39</a>		public void setOn (boolean lightBulbOn)
 		{
-40			on = lightBulbOn;
+<a href='javascript:history.back();' name='40'>40</a>			on = lightBulbOn;
 		}
 	}
 58
 59
 	public class LightBulb_Main
 	{
-41		public static void main (String[] args)
+<a href='javascript:history.back();' name='41'>41</a>		public static void main (String[] args)
 		{
 			JFrame frame = new JFrame ("Light Bulb");
 			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-44			LightBulbPanel bulb
-441			                   = new LightBulbPanel();
-45			LightBulbControls controls
-451			                   = new LightBulbControls (bulb);
+<a href='javascript:history.back();' name='44'>44</a>			LightBulbPanel bulb
+<a href='javascript:history.back();' name='441'>441</a>			                   = new LightBulbPanel();
+<a href='javascript:history.back();' name='45'>45</a>			LightBulbControls controls
+<a href='javascript:history.back();' name='451'>451</a>			                   = new LightBulbControls (bulb);
 			JPanel panel = new JPanel();
 			panel.setBackground (Color.black);
 			panel.setLayout (new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -94,18 +94,18 @@
 			panel.add (Box.createRigidArea (new Dimension (0, 10)));
 			frame.getContentPane().add( panel );		
 			frame.pack();
-56			frame.setVisible(true);
-57			return;
+<a href='javascript:history.back();' name='56'>56</a>			frame.setVisible(true);
+<a href='javascript:history.back();' name='57'>57</a>			return;
 		}
 	}
 	</pre> 				<br>
 <h4>58(off버튼클릭)했을 때 실행순서(7개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>21			public void actionPerformed (ActionEvent event)	</pre><br>
-<pre style='margin:0;padding:0;'>22				bulb.setOn (false);</pre><br>
-<pre style='margin:0;padding:0;'>39		public void setOn (boolean lightBulbOn)</pre><br>
-<pre style='margin:0;padding:0;'>40			on = lightBulbOn;</pre><br>
-<pre style='margin:0;padding:0;'>25				bulb.repaint();</pre><br>
-<pre style='margin:0;padding:0;'>33		public void paintComponent (Graphics page)</pre><br>
-<pre style='margin:0;padding:0;'>38		}</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_2.png'> <br>
+<pre style='margin:0;padding:0;'><a href='#21'>21</a>			public void actionPerformed (ActionEvent event)	</pre><br>
+<pre style='margin:0;padding:0;'><a href='#22'>22</a>				bulb.setOn (false);</pre><br>
+<pre style='margin:0;padding:0;'><a href='#39'>39</a>		public void setOn (boolean lightBulbOn)</pre><br>
+<pre style='margin:0;padding:0;'><a href='#40'>40</a>			on = lightBulbOn;</pre><br>
+<pre style='margin:0;padding:0;'><a href='#25'>25</a>				bulb.repaint();</pre><br>
+<pre style='margin:0;padding:0;'><a href='#33'>33</a>		public void paintComponent (Graphics page)</pre><br>
+<pre style='margin:0;padding:0;'><a href='#38'>38</a>		}</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
 <table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_1.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_LightBulb_2.png' /><br>&nbsp;</td></tr>
 </table> 			</div> 		</div> 	</body> </html> 

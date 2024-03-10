@@ -1,5 +1,5 @@
-<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script type="text/javascript" src="https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/J0505.js"></script> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script> 			const d10 = [  							]; 		</script> 	</head> 	<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 			</div> 			<div id = "navigationBox"> 			</div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>마우스로 클릭하면 점이 생기고 해당 좌표를 알려주는 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
-<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_1.png" ><b><font color='red'></font></b>
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous"></script> 		<link rel="stylesheet" href="../layout.css"> 		<script type="text/javascript" src="../functions.js"></script> 		<script> 			const d10 = [ ["2"], 							]; 		</script> 	</head> 	<body oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> JAVA 프로그래밍 </div> 			<div id = "navigationBox"><ol><li><a href='../Jf1i/Jf1i1.html'>입출력/선택문</a></li><li><a href='../Jf2i/Jf2i1.html'>반복문/배열/예외</a></li><li><a href='../Jf3i/Jf3i1.html'>클래스와 객체/패키지</a></li><li><a href='../Jf4i/Jf4i1.html'>상속 및 다형성</a></li><li><a href='../Jf5i/Jf5i1.html'>GUI 기초</a></li><ul><li><a href='../Jf5i/Jf5i1.html'>버튼 클릭</a></li><li><a href='../Jf5i/Jf5i2.html'>폰트 속성 변경</a></li><li><a href='../Jf5i/Jf5i3.html'>홀짝 맞추기</a></li><li><a href='../Jf5i/Jf5i4.html'>웃는 아이콘 이동</a></li><li><a href='../Jf5i/Jf5i5.html'>마우스 클릭 좌표</a></li><ul><li><a href='Jf5i5.html'>코드읽기</a></li><li><a href='Jf5i5a.html'>알고리즘</a></li><li><a href='Jf5i5k.html'>키워드</a></li><li><a href='Jf5i5b.html'>빈칸채우기</a></li><li><a href='Jf5i5s.html'>실행순서</a></li><li><a href='Jf5i5m.html'>실행상태</a></li><li><a href='./../../github_sourceCode/Chapter05/Coordinates_Main.java' target='_blank'>소스코드</a></li></ul><li><a href='../Jf5i/Jf5i6.html'>전구 On-Off</a></li></ul><li><a href='../Jf6i/Jf6i1.html'>GUI 응용</a></li><li><a href='../Jf7i/Jf7i1.html'>제네릭/컬렉션/파일</a></li><li><a href='../Jf8i/Jf8i1.html'>스레드/네트워크(1:1)</a></li><li><a href='../Jf9i/Jf9i1.html'>네트워크(1:n)</a></li></ol></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>마우스로 클릭하면 점이 생기고 해당 좌표를 알려주는 GUI 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				
+<img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_1.png" >
 <img src = "https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_2.png" > <br> 	   				<h4>프로그램 코드</h4> 				<pre>	import javax.swing.JFrame;
 	import javax.swing.JPanel;
 	import java.awt.*;
@@ -10,31 +10,31 @@
 		private final int SIZE = 6;
 		private int x = 50, y = 50; 
 	
-3		public CoordinatesPanel()
+<a href='javascript:history.back();' name='3'>3</a>		public CoordinatesPanel()
 		{
 			addMouseListener( new CoordinatesListener() );	
 			setBackground( Color.black );
-6			setPreferredSize( new Dimension(300, 200) );
+<a href='javascript:history.back();' name='6'>6</a>			setPreferredSize( new Dimension(300, 200) );
 		}
-7		public void paintComponent (Graphics page)
+<a href='javascript:history.back();' name='7'>7</a>		public void paintComponent (Graphics page)
 		{
 			super.paintComponent(page);
 			page.setColor (Color.green);
 			page.fillOval (x, y, SIZE, SIZE);
-11			page.drawString ("Coordinates: (" + x + ", " + y + ")", 5, 15);
+<a href='javascript:history.back();' name='11'>11</a>			page.drawString ("Coordinates: (" + x + ", " + y + ")", 5, 15);
 		}
 		private class CoordinatesListener implements MouseListener	
 		{
-12			public void mousePressed (MouseEvent event)	
+<a href='javascript:history.back();' name='12'>12</a>			public void mousePressed (MouseEvent event)	
 			{
 				x = event.getX();
 				y = event.getY();
-15				repaint();
+<a href='javascript:history.back();' name='15'>15</a>				repaint();
 			}
 			public void mouseClicked (MouseEvent event) {}
 			public void mouseReleased (MouseEvent event) {}
 			public void mouseEntered (MouseEvent event) {}
-19			public void mouseExited (MouseEvent event) {}
+<a href='javascript:history.back();' name='19'>19</a>			public void mouseExited (MouseEvent event) {}
 		}
 	}
 	
@@ -43,27 +43,27 @@
 	
 	public class Coordinates_Main
 	{
-20		public static void main (String[] args)
+<a href='javascript:history.back();' name='20'>20</a>		public static void main (String[] args)
 		{
 			JFrame frame = new JFrame ("Coordinates");
 			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-23			frame.getContentPane().add (
-24					new CoordinatesPanel());
+<a href='javascript:history.back();' name='23'>23</a>			frame.getContentPane().add (
+<a href='javascript:history.back();' name='24'>24</a>					new CoordinatesPanel());
 			frame.pack();
-26			frame.setVisible(true);
-27			return;
+<a href='javascript:history.back();' name='26'>26</a>			frame.setVisible(true);
+<a href='javascript:history.back();' name='27'>27</a>			return;
 		}
 	}
 	</pre> 				<br>
 <h4>20과 26 사이의 실행순서(4개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>24					new CoordinatesPanel());</pre><br>
-<pre style='margin:0;padding:0;'>3		public CoordinatesPanel()</pre><br>
-<pre style='margin:0;padding:0;'>6			setPreferredSize( new Dimension(300, 200) );</pre><br>
-<pre style='margin:0;padding:0;'>23			frame.getContentPane().add (</pre><br>
+<pre style='margin:0;padding:0;'><a href='#24'>24</a>					new CoordinatesPanel());</pre><br>
+<pre style='margin:0;padding:0;'><a href='#3'>3</a>		public CoordinatesPanel()</pre><br>
+<pre style='margin:0;padding:0;'><a href='#6'>6</a>			setPreferredSize( new Dimension(300, 200) );</pre><br>
+<pre style='margin:0;padding:0;'><a href='#23'>23</a>			frame.getContentPane().add (</pre><br>
 <h4>28(211,142클릭)했을 때 실행순서(4개) 및 실행상태</h4>
-<pre style='margin:0;padding:0;'>12			public void mousePressed (MouseEvent event)	</pre><br>
-<pre style='margin:0;padding:0;'>15				repaint();</pre><br>
-<pre style='margin:0;padding:0;'>7		public void paintComponent (Graphics page)</pre><br>
-<pre style='margin:0;padding:0;'>11			page.drawString ("Coordinates: (" + x + ", " + y + ")", 5, 15);</pre> <br>그림번호 : <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_2.png'> <br>
+<pre style='margin:0;padding:0;'><a href='#12'>12</a>			public void mousePressed (MouseEvent event)	</pre><br>
+<pre style='margin:0;padding:0;'><a href='#15'>15</a>				repaint();</pre><br>
+<pre style='margin:0;padding:0;'><a href='#7'>7</a>		public void paintComponent (Graphics page)</pre><br>
+<pre style='margin:0;padding:0;'><a href='#11'>11</a>			page.drawString ("Coordinates: (" + x + ", " + y + ")", 5, 15);</pre> <br>그림번호 : <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='f6(0)'> <br> <br>
 <table border='1'><tr><td width='50' align='center'>1</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_1.png' /><br>&nbsp;</td></tr> <tr><td width='50' align='center'>2</td><td><br>&nbsp; <img src='https://5awf1ssnauwzzo5wgvczig.on.drv.tw/Web/J/img/GUI_JL06_Coordinates_2.png' /><br>&nbsp;</td></tr>
 </table> 			</div> 		</div> 	</body> </html> 
